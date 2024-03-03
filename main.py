@@ -8,14 +8,7 @@ from movement import red_handle_movement
 from constants import *
 from window import draw_window
 from bullets import handle_bullets
-
-def draw_winner(text):
-    draw_text = WINNER_FONT.render(text, 1, WHITE)
-    WIN.blit(draw_text, (WIDTH/2 - draw_text.get_width() /
-                         2, HEIGHT/2 - draw_text.get_height()/2))
-    pygame.display.update()
-    pygame.time.delay(5000)
-
+from end_screen import draw_winner
 
 def main():
     red = pygame.Rect(700, 300, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
