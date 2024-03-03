@@ -7,27 +7,7 @@ from movement import yellow_handle_movement
 from movement import red_handle_movement
 from constants import *
 from window import draw_window
-
-
-
-
-def handle_bullets(yellow_bullets, red_bullets, yellow, red):
-    for bullet in yellow_bullets:
-        bullet.x += BULLET_VEL
-        if red.colliderect(bullet):
-            pygame.event.post(pygame.event.Event(RED_HIT))
-            yellow_bullets.remove(bullet)
-        elif bullet.x > WIDTH:
-            yellow_bullets.remove(bullet)
-
-    for bullet in red_bullets:
-        bullet.x -= BULLET_VEL
-        if yellow.colliderect(bullet):
-            pygame.event.post(pygame.event.Event(YELLOW_HIT))
-            red_bullets.remove(bullet)
-        elif bullet.x < 0:
-            red_bullets.remove(bullet)
-
+from bullets import handle_bullets
 
 def draw_winner(text):
     draw_text = WINNER_FONT.render(text, 1, WHITE)
